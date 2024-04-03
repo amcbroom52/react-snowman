@@ -1,0 +1,29 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`Matches losing snapshot 1`] = `
+<div>
+  <div
+    class="Snowman"
+  >
+    <img
+      alt="6"
+      src="/src/6.png"
+    />
+    <p>
+      Wrong guesses: 
+      6
+    </p>
+    <p
+      class="Snowman-word"
+    >
+      _
+      _
+      _
+      _
+    </p>
+    <p>
+      You Lose!
+    </p>
+  </div>
+</div>
+`;
