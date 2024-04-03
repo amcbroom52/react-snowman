@@ -32,7 +32,7 @@ function Snowman({
 
   const [nWrong, setNWrong] = useState(0);
   const [guessedLetters, setGuessedLetters] = useState(() => new Set());
-  const [answer, setAnswer] = useState((words)[0]);
+  const [answer, setAnswer] = useState(words[Math.floor(Math.random() * words.length)]);
 
   /** guessedWord: show current-state of word:
    if guessed letters are {a,p,e}, show "app_e" for "apple"
@@ -73,6 +73,12 @@ function Snowman({
     ));
   }
 
+  function restartGame() {
+    setNWrong(0);
+    setGuessedLetters(() => new Set());
+    setAnswer(words[Math.floor(Math.random() * words.length)]);
+  }
+
   return (
     <div className="Snowman">
       <img src={(images)[nWrong]} alt={nWrong} />
@@ -80,7 +86,8 @@ function Snowman({
       <p className="Snowman-word">{guessedWord()}</p>
       {nWrong < maxWrong
         ? <p>{generateButtons()}</p>
-        : <p>You Lose!</p>}
+        : <p>You Lose! Word was {answer}</p>}
+        <button onClick={restartGame}>Restart</button>
     </div>
   );
 }
